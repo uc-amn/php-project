@@ -37,14 +37,7 @@ $arr = json_decode($question, true);
 </head>
 
 <body>
-    <div class="#">
-        <nav class="navbar bg-white border border-dark ">
-            <a href="#" class=" navbar-brand"> <img
-                    src="https://www.ucertify.com/layout/themes/bootstrap4/images/logo/ucertify_logo.png"
-                    alt="uCertify Logo"></a>
-            <h1 class="  navbar-nav col-7 font-weight-bold " style="font-size: 32px; position:relative; bottom:10px;">uCertify Prep Test</h1>
-        </nav>
-    </div>
+<?php include("./header.html") ?>
 
     <div class="list-group w-25 " style="display:none; float: left; background: white; z-index: 10; position:absolute;
     background: white;
@@ -136,7 +129,7 @@ $arr = json_decode($question, true);
                 <div class="modal-footer">
                     <button type="button" class="modclose btn btn-secondary"
                         style="z-index: 10!important;">Cancel</button>
-                    <a href="result.html">
+                    <a href="result.php">
                         <button type="button" class="endtest btn btn-danger"
                             style="z-index: 10!important;">End</button></a>
                 </div>

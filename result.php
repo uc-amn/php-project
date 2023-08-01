@@ -24,14 +24,7 @@
 </head>
 
 <body>
-    <div class="#">
-        <nav class="navbar bg-white border border-dark ">
-            <a href="#" class=" navbar-brand"> <img
-                    src="https://www.ucertify.com/layout/themes/bootstrap4/images/logo/ucertify_logo.png"
-                    alt="uCertify Logo"></a>
-            <h1 class="  navbar-nav col-7 font-weight-bold " style="font-size: 32px;">uCertify Prep Test</h1>
-        </nav>
-    </div>
+<?php include("./header.html") ?>
     <div class="container result-page">
 
         <div class="row clearfix justify-content-center clearfix mb-3">
@@ -114,7 +107,7 @@
     $(document).ready(function() {
         $('.reviewpg').hide();
         $.ajax({
-            url: "http://localhost/php-project/question.json",
+            url: "http://localhost/quiz/question.json",
             type: "POST",
             success: function(data) {
                 var k = 0;
@@ -184,7 +177,7 @@
 
                     $('.snippet-an').click(function() {
 
-                        window.location.href = 'review.html';
+                        window.location.href = 'review.php';
 
                     });
                 }

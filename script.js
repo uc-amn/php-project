@@ -415,7 +415,7 @@ function startTimer(duration, display) {
         seconds = seconds < 10 ? "0" + seconds : seconds;
         display.textContent = minutes + ":" + seconds;
         if (diff <= 0) {
-            window.location.href = "result.html";
+            window.location.href = "result.php";
         }
     }
     timer();

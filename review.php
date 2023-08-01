@@ -35,14 +35,7 @@
 </head>
 
 <body>
-    <div class="#">
-        <nav class="navbar bg-white border border-dark ">
-            <a href="#" class=" navbar-brand"> <img
-                    src="https://www.ucertify.com/layout/themes/bootstrap4/images/logo/ucertify_logo.png"
-                    alt="uCertify Logo"></a>
-            <h1 class="  navbar-nav col-7 font-weight-bold " style="font-size: 32px; position:relative; bottom:10px;">uCertify Prep Test</h1>
-        </nav>
-    </div>
+<?php include("./header.html") ?>
 
 
     <div class="list-group w-25" style="display:none; float: left; background: white; z-index: 1; position:relative; background: white;
@@ -91,22 +84,25 @@
 
     <div class="bg-light border border-dark bg-darkgrey px-3 "
         style="width: 38%; height: 5%; position: absolute; bottom: 10px; right: 50px; ">
-        <div class=" d-flex flex-row position-relative justify-content-around align-items-center pt-1" style="cursor: pointer;">
-            <div class="list-btn d-flex flex-row">
-                <span class=" icomoon-24px-list-2 font18 ic text-white mr-2" style="font-size: 18px;"></span> 
-                <small class="font18 line_height1 align-top d-lg-inline-block text-white" style="font-size: 18px;">List</small>
-            </div>
+        <div class=" d-flex flex-row position-relative justify-content-around align-items-center pt-1"
+            style="cursor: pointer;">
+
             <div class="prev d-flex flex-row">
-                <span class="  icomoon-backward-2 font18 ic text-white mr-2" style="font-size: 18px;"></span> 
-                <small class="font18 line_height1 align-top d-lg-inline-block text-white" style="font-size: 18px;">Previous</small>
+                <span class="  icomoon-backward-2 font18 ic text-white mr-2" style="font-size: 18px;"></span>
+                <small class="font18 line_height1 align-top d-lg-inline-block text-white"
+                    style="font-size: 18px;">Previous</small>
             </div>
             <div class="data d-flex flex-row text-white " style="font-size: 18px;">
-                 
+
             </div>
             <div class="next d-flex flex-row">
-                <small class="font18 line_height1 align-top d-lg-inline-block text-white mr-2 " style="font-size: 18px; ">Next</small>
-                <span class=" icomoon-forward-3 font18 ic text-white" style="font-size: 18px; "></span> 
+                <small class="font18 line_height1 align-top d-lg-inline-block text-white mr-2 "
+                    style="font-size: 18px; ">Next</small>
+                <span class=" icomoon-forward-3 font18 ic text-white" style="font-size: 18px; "></span>
             </div>
+            <div class="goback d-flex flex-row">
+                <small class="font18 line_height1 align-top d-lg-inline-block text-white mr-2 "
+                    style="font-size: 18px; ">Go Back</small>
             </div>
         </div>
     </div>
