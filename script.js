@@ -27,17 +27,17 @@ $(document).ready(function() {
             function printOptions(k) {
                 for (i = 0; i < options; i++) {
                     $(".options").append(
-                        '<label class="radio_label">'+
+                        '<label class="radio_label  ">'+
                         '<div class="multichoiceimg float-left  h "></div>'+
                         '<div class="span1 float-left m-t-n-xxs">'+
                         '<div class="input-group ">'+
                         '<label  class="answer noPrint d-flex" >'+
-                        '<div  class="ansoptlabel  form-control ansopt" value="'+i+'">'+counts[i]+'</div>'+
-                        '<div class="cansoptinput input-group-text d-flex justify-content-center"><input type="radio" id="radio'+(i+1)+'" value="'+i+'" name="optradio" class="userans_radio form-check-input "></div>'+
+                        '<div  class="  border-right-0 ansoptlabel  form-control ansopt"  value="'+i+'">'+counts[i]+'</div>'+
+                        '<div class="rounded-left-0 cansoptinput input-group-text d-flex justify-content-center"><input type="radio" id="radio'+(i+1)+'" value="'+i+'" name="optradio" class="userans_radio form-check-input "></div>'+
                         '</label>'+
                         '</div>'+
                         '</div>'+
-                        '<div class="answer">'+
+                        '<div class="answer" style="position:relative; top:6px">'+
                         JSON.parse(data[k]["content_text"]).answers[i].answer+
                        '</div>'+
                         '</label>'
@@ -171,13 +171,15 @@ $(document).ready(function() {
 
             //This is iterating the list items
             $(".list-group-item").click(function() {
-                // $(".options").empty();
+                $(".options").empty();
+                
                 var ques_id = $(this).attr("id");
                 var final_id = parseInt(ques_id);
                 k = final_id;
 
                 function selectQues(k) {
                     $(".list-group-item").click(function() {
+
                         $(".options").empty();
                         var ques_id = $(this).attr("id");
                         var final_id = parseInt(ques_id);
@@ -185,6 +187,7 @@ $(document).ready(function() {
                         printQuestions(k);
                         printIteration(k);
                         printOptions(k);
+                        setOptions(k);
 
                         if (k > 0) {
                             $(".prev").prop("disabled", false);
@@ -222,6 +225,7 @@ $(document).ready(function() {
 
 
                 $(".at-b").click(function() {
+                    
                     $(".snip").empty();
                     $("p").removeClass("list-group-item");
                     $(".snip").css("margin-top", "-16px");
@@ -246,6 +250,7 @@ $(document).ready(function() {
 
                     }
                     selectQues(snips);
+                    
 
                 });
                 $(".ut-b").click(function() {
@@ -271,6 +276,7 @@ $(document).ready(function() {
                     selectQues(snips);
 
                 });
+                
                 $(".all-b").click(function() {
                     $(".snip").empty();
                     $("p").removeClass("list-group-item");
@@ -304,6 +310,7 @@ $(document).ready(function() {
                         }
                     }
                     selectQues(snips);
+                    
 
                 });
             }); //End of iterating items function
@@ -427,3 +434,54 @@ window.onload = function() {
         display = document.querySelector("#time");
     startTimer(tenMinutes, display);
 };
+
+const button1 = document.getElementById('all-b');
+const button2 = document.getElementById('at-b');
+const button3 = document.getElementById('ut-b');
+
+// Add a click event listener to each button
+button1.addEventListener('click', () => toggleColor(button1));
+button2.addEventListener('click', () => toggleColor(button2));
+button3.addEventListener('click', () => toggleColor(button3));
+
+function toggleColor(selectedButton) {
+  [button1, button2, button3].forEach(button => {
+    if (button !== selectedButton) {
+      button.classList.remove('btn-primary');
+    }
+  });
+
+  selectedButton.classList.toggle('btn-primary');
+}
+
+  function setOptions(curr){
+    // console.log("hellO"+curr);
+        let ans=sessionStorage.getItem("option"+curr);
+        console.log(ans);
+        let option_a = document.getElementById('radio1');
+        let option_b = document.getElementById('radio2');
+        let option_c = document.getElementById('radio3');
+        let option_d = document.getElementById('radio4');
+  
+        if(ans == 0){
+            option_a.checked = true;
+        }
+        else if(ans == 1){
+            option_b.checked = true;
+        }
+        else if(ans == 2){
+            option_c.checked = true;
+        }
+        else if(ans == 3){
+            option_d.checked = true;
+      }
+  
+  }
+
+
+
+
+
+
+
+

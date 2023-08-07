@@ -464,7 +464,7 @@ $(document).ready(function() {
         $(".modal").hide();
     });
     $(".goback").click(function() {
-        window.location.href = "result.php";
+        window.location.href = "index.php";
     });
     //Start of result page
     // $(".endtest").show(".result-page");

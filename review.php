@@ -15,10 +15,11 @@
     /* .start-btn {
             margin-top: 239px;
         } */
-    
+
     seq:before {
         content: attr(no);
     }
+
     .options {
         padding: 11px;
     }
@@ -26,16 +27,38 @@
     #time {
         font-family: monospace;
     }
-    .ic{
+
+    .ic {
         position: relative;
         margin-right: 3px;
         top: 4px;
-     }
+    }
+    .cont{
+        width: 38%;
+        height: 5%;
+        position: absolute; 
+        bottom: 10px; 
+        right: 50px; 
+    }
+
+    @media screen and (max-width: 756px) {
+        .cont{
+            width: 350px;
+            right: 15px;
+            position: fixed;
+        }
+        .ic{
+            top: 0px;
+        }
+        h1{
+            
+        }
+    }
 </style>
 </head>
 
 <body>
-<?php include("./header.html") ?>
+    <?php include("./header.html") ?>
 
 
     <div class="list-group w-25" style="display:none; float: left; background: white; z-index: 1; position:relative; background: white;
@@ -47,14 +70,15 @@
     position: relative;
     margin-left: -5px;">
         <div class="d-flex" style="top: 1px; position: relative; z-index: 2; cursor:pointer;">
-            <p class="list-group-item list-group-item-action" style="cursor:pointer;margin-top: 4px;z-index: 1;" id="0li">
+            <p class="list-group-item list-group-item-action" style="cursor:pointer;margin-top: 4px;z-index: 1;"
+                id="0li">
                 <button class="btn-group" style="border: none;">
-                <span class="btn all-b text-primary btn-outline-dark"
-                    style="background-color: white;">All</span>
-                <span class="btn at-b text-success btn-outline-dark" style="background-color: white;">Attempted</span>
-                <span class="btn ut-b text-warning btn-outline-dark"
-                    style="background-color: white;">Unattempted</span>
-                    </button>
+                    <span class="btn all-b text-primary btn-outline-dark" style="background-color: white;">All</span>
+                    <span class="btn at-b text-success btn-outline-dark"
+                        style="background-color: white;">Attempted</span>
+                    <span class="btn ut-b text-warning btn-outline-dark"
+                        style="background-color: white;">Unattempted</span>
+                </button>
 
             </p>
         </div>
@@ -82,27 +106,30 @@
     </div>
 
 
-    <div class="bg-light border border-dark bg-darkgrey px-3 "
-        style="width: 38%; height: 5%; position: absolute; bottom: 10px; right: 50px; ">
+    <div class="bg-light border border-dark bg-darkgrey px-3 cont">
         <div class=" d-flex flex-row position-relative justify-content-around align-items-center pt-1"
             style="cursor: pointer;">
 
             <div class="prev d-flex flex-row">
                 <span class="  icomoon-backward-2 font18 ic text-white mr-2" style="font-size: 18px;"></span>
-                <small class="font18 line_height1 align-top d-lg-inline-block text-white"
+                <small class="font18 line_height1 align-top d-lg-inline-block text-white d-none"
                     style="font-size: 18px;">Previous</small>
             </div>
             <div class="data d-flex flex-row text-white " style="font-size: 18px;">
 
             </div>
             <div class="next d-flex flex-row">
-                <small class="font18 line_height1 align-top d-lg-inline-block text-white mr-2 "
+                <small class="font18 line_height1 align-top d-lg-inline-block text-white mr-2 d-none"
                     style="font-size: 18px; ">Next</small>
                 <span class=" icomoon-forward-3 font18 ic text-white" style="font-size: 18px; "></span>
             </div>
+            <div class=" d-flex flex-row" onclick="history.back()">
+                <small class="font18 line_height1 align-top d-lg-inline-block text-white mr-2"
+                    style="font-size: 18px; ">Back</small>
+            </div>
             <div class="goback d-flex flex-row">
-                <small class="font18 line_height1 align-top d-lg-inline-block text-white mr-2 "
-                    style="font-size: 18px; ">Go Back</small>
+                <!-- <span class="  icomoon-backward-2 font18 ic text-white mr-2" style="font-size: 18px;"></span> -->
+                <small class="font18 line_height1 align-top d-lg-inline-block text-white" style="font-size: 18px;">Dash</small>
             </div>
         </div>
     </div>
