@@ -188,6 +188,11 @@ $(document).ready(function() {
                         printIteration(k);
                         printOptions(k);
                         setOptions(k);
+                        $(".rounded-pill").click(function() {
+                            $(".list-group").toggle();
+                        });
+
+                         
 
                         if (k > 0) {
                             $(".prev").prop("disabled", false);
@@ -200,6 +205,7 @@ $(document).ready(function() {
                         }
 
                     });
+                    
                 }
                 selectQues(k);
 
@@ -225,34 +231,40 @@ $(document).ready(function() {
 
 
                 $(".at-b").click(function() {
-                    
                     $(".snip").empty();
                     $("p").removeClass("list-group-item");
                     $(".snip").css("margin-top", "-16px");
-
-                    // $('.list-group-item-action').empty();
-                    // $(".list-group-item").removeClass("list-group-item");
+                
                     for (snips = 0; snips < data.length; snips++) {
                         optValue = sessionStorage.getItem("option" + snips);
-                        if (optValue !== null) {
+                        
+                        if (optValue === null) {
                             $(".list-group").append(
-                                '<p class="list-group-item snip list-group-item-action" style="cursor:pointer; margin-top:-10px; z-index: 1;" id="' +
+                                '<p class="snip list-group-item list-group-item-action" style="cursor:pointer; margin-top:-10px; z-index: 1;" id="' +
                                 snips +
                                 'li"><b>Ques :  ' +
                                 (snips + 1) +
-                                " </b>" +
-                                data[snips]["snippet"] +
-                                '<br><span class="badge rounded-pill text-bg-success att' +
-                                snips +
-                                '">Attempted</span></p>'
+                                ' </b>you did not attemmpt this question</p>'
                             );
+                            continue; // Skip the current iteration and proceed to the next one
                         }
-
+                
+                        $(".list-group").append(
+                            '<p class="snip list-group-item list-group-item-action" style="cursor:pointer; margin-top:-10px; z-index: 1;" id="' +
+                            snips +
+                            'li"><b>Ques :  ' +
+                            (snips + 1) +
+                            " </b>" +
+                            data[snips]["snippet"] +
+                            '<br><span class="badge rounded-pill text-bg-success att' +
+                            snips +
+                            '">Attempted</span></p>'
+                        );
                     }
-                    selectQues(snips);
                     
-
+                    selectQues(snips);
                 });
+                
                 $(".ut-b").click(function() {
                     $(".snip").empty();
                     $("p").removeClass("list-group-item");
@@ -327,7 +339,7 @@ $(document).ready(function() {
                     }
                 );
             });
-            // $(".snip").click(function() {
+            // $(".rounded-pill").click(function() {
             //     $(".list-group").toggle();
             // });
 
@@ -349,6 +361,7 @@ $(document).ready(function() {
 
         }, // success: function (data) ends here
     }); //.ajax() ends here
+    
 
     $(".list-bt").click(function() {
         $(".list-group").toggle();
@@ -380,13 +393,18 @@ $(document).ready(function() {
         $(".modclose").click(function() {
             $(".modal").hide();
         });
+        // $(".list-group-item").click(function() {
+        //     $(".list-group").hide();
+        // });
+        
+
     }
 
 
 
-    $(".itmlist").click(function() {
-        $(".list-group").toggle();
-    });
+    // $(".snip").click(function() {
+    //     $(".list-group").toggle();
+    // });
 
     $(".end").click(function() {
         $(".modal").show();
@@ -430,7 +448,7 @@ function startTimer(duration, display) {
 }
 
 window.onload = function() {
-    var tenMinutes = 60 * 3,
+    var tenMinutes = 60 * 10,
         display = document.querySelector("#time");
     startTimer(tenMinutes, display);
 };

@@ -125,11 +125,11 @@
             </div>
             <div class=" d-flex flex-row" onclick="history.back()">
                 <small class="font18 line_height1 align-top d-lg-inline-block text-white mr-2"
-                    style="font-size: 18px; ">Back</small>
+                    style="font-size: 18px; ">Result</small>
             </div>
             <div class="goback d-flex flex-row">
                 <!-- <span class="  icomoon-backward-2 font18 ic text-white mr-2" style="font-size: 18px;"></span> -->
-                <small class="font18 line_height1 align-top d-lg-inline-block text-white" style="font-size: 18px;">Dash</small>
+                <small class="font18 line_height1 align-top d-lg-inline-block text-white" style="font-size: 18px;">DashBoard</small>
             </div>
         </div>
     </div>

@@ -123,7 +123,7 @@
             </div>
         </div>
 
-        <table class="table table-striped">
+        <table class="table table-striped ">
             <thead>
                 <tr>
                     <th scope="col">No</th>
@@ -141,9 +141,9 @@
                 style="cursor: pointer;">
 
                 <div class="goback d-flex flex-row">
-                    <span class="  icomoon-backward-2 font18 ic text-white mr-2" style="font-size: 18px;"></span>
+                    <!-- <span class="  icomoon-backward-2 font18 ic text-white mr-2" style="font-size: 18px;"></span> -->
                     <small class="font18 line_height1 align-top d-lg-inline-block text-white"
-                        style="font-size: 18px;">Dashboard</small>
+                        style="font-size: 18px;">DashBoard</small>
                 </div>
             </div>
         </div>
@@ -171,7 +171,7 @@
                     checkat = sessionStorage.getItem("option" + k);
                     checkres = sessionStorage.getItem("result" + k);
 
-                    $("tbody").append('<tr><th scope="row" class="snippet">' + (k + 1) + '</th><td class="snippet-an" id="s' + k + '">' + data[k]["snippet"] + '</td><td class="d-flex justify-content-between" style="font-weight: 700;"><p class="border-dark ' + k + 'var0 corr' +
+                    $("tbody").append('<tr class=""><th scope="row" class="pb-3">' + (k + 1) + '</th><td class="snippet-an pt-3" id="s' + k + '">' + data[k]["snippet"] + '</td><td class="d-flex  align-items-center justify-content-between pt-3" style="font-weight: 700;"><p class="border-dark ' + k + 'var0 corr' +
                         k + 'li' + 0 +
                         '">A</p><p class="border-dark ' + k + 'var1 corr' +
                         k + 'li' + 1 +
@@ -179,9 +179,14 @@
                         k + 'li' + 2 +
                         '">C</p><p class="border-dark ' + k + 'var3 corr' +
                         k + 'li' + 3 +
-                        '">D</p></td > <td class="checkat' + k + '"></td></tr >'
+                        '">D</p></td > <td class="checkat' + k + ' pt-3"></td></tr >'
                     );
 
+                    var snippetAnElement = document.getElementById('s' + k);
+                    snippetAnElement.addEventListener('click', function (event) {
+                        var clickedElementId = event.target.id;
+                        navigateToNextPage(clickedElementId);
+                    });
 
                     if ((sessionStorage.getItem("result" + k)) == (1)) {
                         $(".checkat" + k).append("Correct").addClass('text-success');
@@ -192,16 +197,12 @@
                     }
                     for (i = 0; i < 4; i++) {
 
-                        if ((sessionStorage.getItem("option" + k)) == i) {
+                        if ((sessionStorage.getItem("option" + k)) == i && JSON.parse(data[k]["content_text"]).answers[i]['is_correct'] !== '1') {
                             $('.' + k + 'var' + i).addClass('text-danger');
                         }
                         if (JSON.parse(data[k]["content_text"]).answers[i]['is_correct'] == '1' && JSON.parse(data[k]["content_text"]).answers[i]['is_correct'] !== '0') {
                             $('.corr' + k + 'li' + i).addClass('text-success');
                         }
-
-
-
-
                     }
 
                     if (checkres == 1) {
@@ -224,11 +225,22 @@
                         (parseFloat(count / (data.length) * (100)).toFixed(2) + "%")
                     );
 
-                    $('.snippet-an').click(function () {
+                    // $('.snippet-an').click(function () {
+                    //     var nextPageURL = "review.php?id=" + ;
+                    //     window.location.href = nextPageURL;
+                    //     // console.log(k);
+                    //     // $.ajax({
+                    //     //     type: 'POST',
+                    //     //     url: 'review.php',
+                    //     //     data: { text1:k },
 
-                        window.location.href = 'review.php';
+                    //     // });
 
-                    });
+                    // });
+                    function navigateToNextPage(clickedElementId) {
+                        var nextPageURL = "review.php?id=" + clickedElementId;
+                        window.location.href = nextPageURL;
+                    }
                 }
 
             }, // success: function (data) ends here

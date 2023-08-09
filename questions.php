@@ -77,15 +77,15 @@ session_start();
 <body>
     <?php include("./header.html") ?>
     <div class="list-group " >
-        <div class="d-flex" style="top: 1px; position: relative; z-index: 5; cursor:pointer;">
-            <p class="list-group-item list-group-item-action" style="cursor:pointer;margin-top: 4px;z-index: 1;"
+        <div class="d-flex " style="top: 1px; position: relative; z-index: 5; cursor:pointer;">
+            <p class="list-group-item list-group-item-action b " style="cursor:pointer;margin-top: 4px;z-index: 1;"
                 id="0li">
                 <button class="btn-group" style="border: none;">
                     <span class="btn  all-b btn-outline-dark" id="all-b">All</span>
                     <span class="btn  at-b  btn-outline-dark" id="at-b">Attempted</span>
                     <span class="btn ut-b   btn-outline-dark" id="ut-b">Unattempted</span>
                 </button>
-
+                
             </p>
         </div>
     </div>
@@ -141,10 +141,11 @@ session_start();
         <div class="modal-dialog modal-dialog-centered">
             <div class="modal-content rounded" style="box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px; ">
                 <div class="modal-header">
-                    <h5 class="modal-title font-weight-bold">Are you sure you want to end the test ?</h5>
+                    <h5 class="modal-title font-weight-bold">Confirmation</h5>
                     <button type="button" class="btn-close modclose"></button>
                 </div>
                 <div class="modal-body">
+                <div class="text-center m-2 font-weight-bold">Are you sure you want to end the test ?</div>
                     <div class="d-flex justify-content-between">
                         <button class="btn w-25">Total <br><span class="total-item text-primary"></span>
                         </button>
